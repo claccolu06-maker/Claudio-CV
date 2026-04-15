@@ -89,10 +89,11 @@ main {
   max-width: 1100px;
 }
 .yo-contenido {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
+ display: grid;
+ grid-template-columns: 1 fr 1 fr;
+  gap: 3 rem;
+  align-items:center;
+  width: 100 %;
 }
 
 .yo-imagen img {
