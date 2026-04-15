@@ -89,9 +89,9 @@ main {
   max-width: 1100px;
 }
 .yo-contenido {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 3fr 2fr;   /* texto más ancho, foto más pequeña */
+  gap: 2.5rem;
   align-items: center;
 }
 
