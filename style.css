@@ -48,7 +48,7 @@ header {
     align-items: center;
 }
 h1{
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--color-acento);
   font-weight: 700;
 }
@@ -104,7 +104,7 @@ main {
   display: block;
 }
 #yo h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--color-acento);
   margin-bottom: 1rem;
@@ -184,7 +184,7 @@ main {
   background: rgba(255, 255, 255, 0.02);
 }
 #experiencia h2 {
-    font-size: large;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--color-acento);
     margin-bottom: 1rem;
