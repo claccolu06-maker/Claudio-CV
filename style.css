@@ -119,7 +119,6 @@ main {
   align-items: first baseline;
 }
 .yo-botones {
-  .hero-botones {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
