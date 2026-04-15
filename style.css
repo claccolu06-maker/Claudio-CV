@@ -84,25 +84,28 @@ main {
   background-color: var(--color-card);
   border-radius: 1rem;
   border: 1px solid var(--color-borde);
-  padding: 2.5rem 2rem;
-  margin-bottom: 2rem;
-  max-width: 1100px;
+  padding: 3.5rem 3rem;
+  margin-bottom: 2.5rem;
 }
 .yo-contenido {
  display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2.5fr;
   gap: 3rem;
   align-items: center;
   width: 100%;
 }
 
+.yo-imagen {
+  display: flex;
+  justify-content: center;
+}
+
 .yo-imagen img {
   width: 100%;
-  max-width: 260px;
-  border-radius: 1.2rem;
+  max-width: 380px;
+  border-radius: 1.5rem;
   border: 2px solid var(--color-borde);
-  margin: 0 auto;
-  display: block;
+  object-fit: cover;
 }
 #yo h2 {
   font-size: 1.6rem;
