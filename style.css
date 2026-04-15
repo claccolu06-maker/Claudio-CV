@@ -102,8 +102,8 @@ main {
   border: 2px solid var(--color-borde);
   margin: 0 auto;
   display: block;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  justify-content: left;
   flex-direction: column;
 }
 #yo h2 {
