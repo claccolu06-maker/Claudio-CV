@@ -90,8 +90,8 @@ main {
 }
 .yo-contenido {
   display: flex;
-  grid-template-columns: 3fr 2fr;   /* texto más ancho, foto más pequeña */
-  gap: 2.5rem;
+  flex-direction: column;
+  gap: 1.5rem;
   align-items: center;
 }
 
