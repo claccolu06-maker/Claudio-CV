@@ -98,11 +98,10 @@ main {
 
 .yo-imagen img {
   width: 100%;
-  max-width: 260px;
+  max-width: 200px;
   border-radius: 1.2rem;
   border: 2px solid var(--color-borde);
   margin: 0 auto;
-  display: block;
   display: flex;
   justify-content: center;
   flex-direction: column;
