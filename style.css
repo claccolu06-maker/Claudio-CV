@@ -90,8 +90,8 @@ main {
 }
 .yo-contenido {
  display: grid;
- grid-template-columns: 1 fr 1 fr;
-  gap: 3 rem;
+ grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   align-items:center;
   width: 100%;
 }
@@ -197,14 +197,18 @@ main {
 }
 #experiencia h3 {
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 1200;
     color: var(--color-texto);
     margin-bottom: 0.5rem;
+    text-decoration: overline;
+
 }
 #experiencia p {
     color: var(--color-texto-muted);
     font-size: 0.98rem;
     margin-bottom: 0.5rem;
+    text-align: center;
+
 }
 .skill-tag {
     display: inline-block;
@@ -216,7 +220,7 @@ main {
     margin: 0.2rem;
 }
 .btn {
-  display: inline-block;
+display: inline-block;
   padding: 0.6rem 1.3rem;
   border-radius: 0.75rem;
   font-weight: 600;
@@ -235,11 +239,11 @@ main {
   transform: translateY(-2px);
 }
 .boton-practica-secundario {
-  border: 1px solid var(--color-borde);
-  color: var(--color-texto);
+  background: var(--color-acento);
+  color: #fff;
 }
 .boton-practica-secundario:hover {
-  border-color: var(--color-acento2);
+   background: var(--color-acento2);
   transform: translateY(-2px);
 }
 #experiencia  ul {
