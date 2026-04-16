@@ -88,23 +88,26 @@ main {
   margin-bottom: 2rem;
   max-width: 1100px;
 }
+/* Contenedor: texto + foto */
 .yo-contenido {
- display: grid;
- grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items:center;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 3fr 2fr;   /* texto más ancho, foto más estrecha */
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* Foto */
+.yo-imagen {
+  display: flex;
+  justify-content: center;          /* la foto centrada dentro de su columna */
 }
 
 .yo-imagen img {
   width: 100%;
-  max-width: 200px;
-  border-radius: 1.2rem;
+  max-width: 280px;                 /* controla el tamaño máximo */
+  border-radius: 1.5rem;
   border: 2px solid var(--color-borde);
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  object-fit: cover;
 }
 #yo h2 {
   font-size: 1.6rem;
@@ -161,104 +164,109 @@ main {
   border-color: var(--color-acento2);
   transform: translateY(-2px);
 }
+/* Bloque general de experiencia (lo tienes parecido) */
 #experiencia {
   max-width: 1110px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: var(--color-card);
-    border-radius: 1rem;
-    border: 1px solid var(--color-borde);
-    margin-bottom: 2rem;
+  margin: 0 auto 2.5rem;
+  padding: 2.5rem 2rem;
+  background: var(--color-card);
+  border-radius: 1rem;
+  border: 1px solid var(--color-borde);
 }
+
+/* Bloques internos en columna */
 .experiencia-contenido {
   display: flex;
-  flex-direction: column;  /* uno debajo de otro */
-  gap: 1.5rem;             /* separación vertical entre bloques */
-}
-.experiencia-contenido {
-  display: flex;
-  flex-direction: column;  /* Bloque 1, luego 2, luego 3 */
+  flex-direction: column;
   gap: 1.5rem;
 }
 
-.experiencia-bloque {
-  /* opcional: que parezcan mini tarjetas dentro de la sección */
-  padding: 1.2rem;
-  border-radius: 0.8rem;
-  border: 1px solid var(--color-borde);
-  background: rgba(255, 255, 255, 0.02);
-}
-#experiencia h2 {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--color-acento);
-    margin-bottom: 1rem;
-}
+/* Subtítulos y texto */
 #experiencia h3 {
-    font-size: 1.2rem;
-    font-weight: 1200;
-    color: var(--color-texto);
-    margin-bottom: 0.5rem;
-    text-decoration: overline;
-
-}
-#experiencia p {
-    color: var(--color-texto-muted);
-    font-size: 0.98rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
-
-}
-.skill-tag {
-    display: inline-block;
-    background: var(--color-borde);
-    color: var(--color-texto);
-    padding: 0.3rem 0.8rem;
-    border-radius: 0.5rem;
-    font-size: 0.85rem;
-    margin: 0.2rem;
-}
-.btn {
-display: inline-block;
-  padding: 0.6rem 1.3rem;
-  border-radius: 0.75rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  color: var(--color-texto);
+  margin-bottom: 0.6rem;
 }
 
-/* primario */
-.boton-practica-primario {
+#experiencia p {
+  color: var(--color-texto-muted);
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Tag US (ya no ocupa toda la línea) */
+.skill-tag {
+  display: inline-block;
+  background: rgba(156, 119, 243, 0.12);
+  color: var(--color-acento2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  border: 1px solid var(--color-borde);
+}
+
+/* Botón de estudios más pequeño, debajo del texto */
+.boton-estudios {
+  display: inline-block;
+  margin-top: 0.4rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.7rem;
   background: var(--color-acento);
   color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
 }
-.boton-practica-primario:hover {
+
+.boton-estudios:hover {
   background: var(--color-acento2);
   transform: translateY(-2px);
 }
-.boton-practica-secundario {
-  background: var(--color-acento);
-  color: #fff;
-}
-.boton-practica-secundario:hover {
-   background: var(--color-acento2);
-  transform: translateY(-2px);
-}
-#experiencia  ul {
+
+/* Lista de práctica algo más limpia */
+#experiencia ul {
   list-style-type: disc;
   padding-left: 1.5rem;
   color: var(--color-texto-muted);
 }
+
 #experiencia ul li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
-.boton-estudios {
+
+/* Enlaces de práctica como botones pequeños debajo del texto del li */
+.boton-practica-primario,
+.boton-practica-secundario {
+  display: inline-block;
+  margin-top: 0.35rem;
+  padding: 0.45rem 1rem;
+  border-radius: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.boton-practica-primario {
   background: var(--color-acento);
   color: #fff;
 }
-.boton-estudios:hover {
+
+.boton-practica-primario:hover {
   background: var(--color-acento2);
+  transform: translateY(-2px);
+}
+
+.boton-practica-secundario {
+  border: 1px solid var(--color-borde);
+  color: var(--color-texto);
+}
+
+.boton-practica-secundario:hover {
+  border-color: var(--color-acento2);
   transform: translateY(-2px);
 }
 #proyectos {
