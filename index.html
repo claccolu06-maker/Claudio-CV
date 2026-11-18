@@ -1,222 +1,673 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claudio · CV</title>
-  <meta name="description" content="CV de Claudio, estudiante de marketing y desarrollador web.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claudio Accorinti Luna</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="CV de Claudio Accorinti Luna: estudiante de Marketing en Sevilla. Render 3D, apps y marketing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: a printed CV sheet on light paper, then a dark studio reel below. One page, two worlds. */
+:root {
+  color-scheme: light;
+  --paper: #ecebe7;
+  --sheet: #ffffff;
+  --ink: #17171b;
+  --ink-2: #5d5c63;
+  --rule: #dcdad5;
+  --night: #0c0c0f;
+  --night-2: #16161b;
+  --night-3: #222229;
+  --bone: #edece8;
+  --mute: #8f8e97;
+  --red: #e3261b;
+  --red-soft: #ff5a4e;
+  --f-display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --gut: max(16px, env(safe-area-inset-left, 0px));
+  --gut-r: max(16px, env(safe-area-inset-right, 0px));
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img, video { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+p { margin: 0; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-left: var(--gut); padding-right: var(--gut-r); }
+.mono { font-family: var(--f-mono); font-size: 12px; letter-spacing: .04em; }
+
+/* ---------- top bar ---------- */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bar-bg, var(--paper)); }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--rule); transition: background .45s, color .45s, border-color .45s; }
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { font-family: var(--f-display); font-weight: 800; font-size: 15px; text-decoration: none; letter-spacing: -.01em; white-space: nowrap; }
+.brand span { color: var(--red); }
+.bar nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.bar nav::-webkit-scrollbar { display: none; }
+.bar nav a { text-decoration: none; font-size: 13px; font-weight: 500; padding: 6px 10px; border-radius: 99px; white-space: nowrap; color: var(--ink-2); transition: color .2s, background .2s; }
+.bar nav a:hover { color: var(--ink); background: rgba(0,0,0,.05); }
+.bar nav a.is-on { color: var(--ink); background: rgba(0,0,0,.07); }
+body.in-reel .bar { background: color-mix(in srgb, var(--night) 82%, transparent); border-color: var(--night-3); color: var(--bone); }
+body.in-reel { --bar-bg: var(--night); }
+body.in-reel .bar nav a { color: var(--mute); }
+body.in-reel .bar nav a:hover, body.in-reel .bar nav a.is-on { color: var(--bone); background: rgba(255,255,255,.08); }
+@media (max-width: 640px) { .bar .cv-only { display: none; } }
+
+/* ---------- CV sheet ---------- */
+.cv { padding-block: 40px 56px; }
+.cv-label { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; max-width: 860px; margin: 0 auto 12px; color: var(--ink-2); }
+.sheet { max-width: 860px; margin: 0 auto; background: var(--sheet); border-radius: 4px; box-shadow: 0 1px 2px rgba(20,20,30,.06), 0 12px 40px -12px rgba(20,20,30,.18); padding: 44px 48px 40px; }
+.cv-head { display: grid; grid-template-columns: 112px 1fr; gap: 28px; align-items: center; padding-bottom: 26px; border-bottom: 2px solid var(--ink); }
+.cv-head img { width: 112px; height: 140px; object-fit: cover; border-radius: 3px; }
+.cv-head h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 800; font-stretch: 92%; letter-spacing: -.02em; line-height: 1; }
+.cv-role { margin-top: 8px; font-size: 16px; color: var(--ink-2); }
+.contact { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 13.5px; }
+.contact a { text-decoration: none; border-bottom: 1px solid var(--rule); }
+.contact a:hover { border-color: var(--ink); }
+.cv-body { display: grid; grid-template-columns: 1fr 236px; gap: 40px; padding-top: 28px; }
+.cv-body > * { min-width: 0; }
+.cv h2 { font-family: var(--f-mono); font-weight: 500; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 12px; }
+.cv-block + .cv-block { margin-top: 28px; }
+.job-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.job h3 { font-family: var(--f-body); font-size: 16px; font-weight: 600; }
+.job .where { color: var(--ink-2); font-size: 14px; margin-top: 2px; }
+.job .when { font-family: var(--f-mono); font-size: 12px; color: var(--ink-2); white-space: nowrap; }
+.job ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 5px; font-size: 14px; }
+.job ul li::marker { color: var(--red); }
+.langs { display: grid; gap: 9px; }
+.lang { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 10px; font-size: 14px; }
+.lang small { grid-column: 1 / -1; color: var(--ink-2); font-size: 12px; margin-top: -4px; }
+.dots { display: flex; gap: 3px; }
+.dots i { width: 14px; height: 4px; border-radius: 2px; background: var(--rule); }
+.dots i.f { background: var(--ink); }
+.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 14px; }
+.plain li { padding-left: 14px; position: relative; }
+.plain li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 1.5px; background: var(--ink-2); }
+.cv-actions { max-width: 860px; margin: 18px auto 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-body); font-weight: 600; font-size: 14px; padding: 11px 18px; border-radius: 99px; text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .2s, background .2s, border-color .2s, color .2s; }
+.btn:hover { transform: translateY(-1px); }
+.btn-ink { background: var(--ink); color: var(--sheet); }
+.btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
+
+/* ---------- the turn ---------- */
+.turn { background: linear-gradient(to bottom, var(--paper) 0%, #8d8c91 22%, #26262c 42%, var(--night) 58%); padding-block: 150px 40px; overflow: hidden; }
+.turn .eyebrow { color: var(--bone); text-align: center; opacity: .8; }
+.turn h2 { margin: 26px auto 0; max-width: 15ch; text-align: center; color: var(--bone); font-weight: 900; font-stretch: 118%; font-size: clamp(38px, 8.4vw, 104px); line-height: .92; letter-spacing: -.035em; }
+.turn h2 em { font-style: normal; color: var(--red); }
+.turn h2 .w { display: inline-block; transition: transform .9s cubic-bezier(.2,.7,.1,1), opacity .9s; }
+.turn.armed h2 .w { transform: translateY(.35em); opacity: .25; }
+.turn.armed.go h2 .w { transform: none; opacity: 1; }
+.chips { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 38px; }
+.chip { display: inline-flex; gap: 10px; align-items: baseline; text-decoration: none; color: var(--bone); border: 1px solid rgba(255,255,255,.22); padding: 10px 16px; border-radius: 99px; font-weight: 600; font-size: 14px; transition: background .2s, border-color .2s; }
+.chip:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.5); }
+.chip .mono { color: var(--mute); font-size: 11px; }
+
+/* ---------- reel (dark portfolio) ---------- */
+.reel { background: var(--night); color: var(--bone); }
+.part { padding-block: 72px 40px; scroll-margin-top: 56px; }
+.part-head { display: grid; grid-template-columns: auto 1fr auto; gap: 16px 24px; align-items: end; padding-bottom: 18px; border-bottom: 1px solid var(--night-3); margin-bottom: 28px; }
+.part-head h2 { font-size: clamp(34px, 6vw, 68px); font-weight: 900; font-stretch: 112%; letter-spacing: -.03em; line-height: .9; }
+.part-head p { color: var(--mute); font-size: 15px; max-width: 52ch; align-self: end; }
+.part-head .mono { color: var(--mute); white-space: nowrap; }
+@media (max-width: 760px) { .part-head { grid-template-columns: 1fr; } }
+
+/* renders */
+.renders-tall { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.renders-wide { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+.render { position: relative; background: var(--night-2); border-radius: 6px; overflow: hidden; margin: 0; }
+.render .media { position: relative; overflow: hidden; background: #000; }
+.renders-tall .media { aspect-ratio: 4 / 5; }
+.renders-wide .media { aspect-ratio: 16 / 9; }
+.render video, .render .media img { width: 100%; height: 100%; object-fit: cover; }
+.render figcaption { padding: 14px 16px 16px; display: grid; gap: 4px; }
+.render h3 { font-size: 19px; font-weight: 800; font-stretch: 105%; letter-spacing: -.01em; }
+.render .desc { color: var(--mute); font-size: 14px; }
+.render .specs { color: var(--mute); margin-top: 6px; font-size: 11px; }
+.play { position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; background: rgba(12,12,15,.72); color: var(--bone); border: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); font: 600 13px var(--f-body); padding: 8px 13px; border-radius: 99px; cursor: pointer; transition: background .2s; }
+.play:hover { background: var(--red); border-color: var(--red); }
+.play svg { width: 12px; height: 12px; fill: currentColor; }
+@media (max-width: 860px) {
+  .renders-tall { grid-template-columns: repeat(3, 72%); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; scrollbar-width: thin; }
+  .renders-tall .render { scroll-snap-align: start; }
+  .renders-wide { grid-template-columns: 1fr; }
+}
+
+/* apps */
+.feature { display: grid; grid-template-columns: 1.55fr 1fr; gap: 28px; background: var(--night-2); border-radius: 8px; padding: 18px; align-items: start; }
+.feature > * { min-width: 0; }
+.shots { display: grid; gap: 10px; }
+.shots .frame { border-radius: 5px; overflow: hidden; border: 1px solid var(--night-3); background: #000; aspect-ratio: 1520 / 700; }
+.shots .frame img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.tabs button { font: 500 13px var(--f-body); color: var(--mute); background: transparent; border: 1px solid var(--night-3); padding: 6px 12px; border-radius: 99px; cursor: pointer; }
+.tabs button[aria-selected="true"] { color: var(--night); background: var(--bone); border-color: var(--bone); }
+.app-text { padding: 8px 6px; display: grid; gap: 12px; align-content: start; }
+.app-text h3 { font-size: 30px; font-weight: 900; font-stretch: 110%; letter-spacing: -.02em; }
+.app-text p { color: #c4c3c9; font-size: 15px; }
+.facts { list-style: none; padding: 0; margin: 4px 0 0; display: grid; gap: 8px; }
+.facts li { display: grid; grid-template-columns: 96px 1fr; gap: 10px; font-size: 14px; border-top: 1px solid var(--night-3); padding-top: 8px; }
+.facts li span:first-child { font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--mute); padding-top: 2px; }
+.go { display: inline-flex; align-items: center; gap: 8px; color: var(--bone); font-weight: 600; text-decoration: none; border-bottom: 1.5px solid var(--red); padding-bottom: 2px; width: fit-content; font-size: 14px; }
+.go:hover { color: var(--red-soft); }
+.apps-row { display: grid; grid-template-columns: 1.3fr 1fr; gap: 14px; margin-top: 14px; }
+.apps-stack { display: grid; gap: 14px; grid-template-rows: 1fr 1fr; min-width: 0; }
+.app-card { background: var(--night-2); border-radius: 8px; padding: 18px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.app-card .thumb { border-radius: 5px; overflow: hidden; border: 1px solid var(--night-3); aspect-ratio: 900 / 630; }
+.app-card .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.app-card h3 { font-size: 21px; font-weight: 800; font-stretch: 105%; }
+.app-card p { color: var(--mute); font-size: 14px; }
+.app-card .go { margin-top: auto; }
+.app-card .url { font-family: var(--f-mono); font-size: 11.5px; color: var(--mute); overflow-wrap: anywhere; }
+.badge { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--red-soft); }
+@media (max-width: 900px) { .feature { grid-template-columns: 1fr; } .apps-row { grid-template-columns: 1fr; } }
+
+/* marketing */
+.mk-intro { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end; margin-bottom: 22px; }
+.mk-intro h3 { font-size: clamp(26px, 4vw, 40px); font-weight: 900; font-stretch: 110%; letter-spacing: -.02em; line-height: 1; }
+.mk-intro p { color: #c4c3c9; margin-top: 10px; max-width: 60ch; }
+.stats { display: flex; gap: 28px; }
+.stat b { display: block; font-family: var(--f-display); font-weight: 900; font-stretch: 112%; font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat span { font-family: var(--f-mono); font-size: 11px; color: var(--mute); letter-spacing: .05em; }
+.posters { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.poster { margin: 0; }
+.poster .pimg { aspect-ratio: 4 / 5; border-radius: 4px; overflow: hidden; background: var(--night-2); }
+.poster img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2,.7,.1,1); }
+.poster:hover img { transform: scale(1.04); }
+.poster figcaption { display: flex; justify-content: space-between; gap: 6px; margin-top: 6px; font-size: 12px; color: var(--mute); }
+.poster figcaption .mono { font-size: 10.5px; }
+@media (max-width: 900px) { .posters { grid-template-columns: repeat(3, 1fr); } .mk-intro { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .posters { grid-template-columns: repeat(2, 1fr); } }
+
+/* contact */
+.contact-end { padding-block: 90px 60px; border-top: 1px solid var(--night-3); margin-top: 40px; }
+.contact-end h2 { font-size: clamp(36px, 7vw, 84px); font-weight: 900; font-stretch: 115%; letter-spacing: -.035em; line-height: .95; }
+.contact-end h2 em { font-style: normal; color: var(--red); }
+.c-grid { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 18px 48px; margin-top: 34px; }
+.c-grid div { display: grid; gap: 4px; min-width: 0; }
+.c-grid .mono { color: var(--mute); font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+.c-grid a, .c-grid strong { font-size: 18px; font-weight: 600; text-decoration: none; overflow-wrap: anywhere; }
+.c-grid a:hover { color: var(--red-soft); }
+.btn-bone { background: var(--bone); color: var(--night); }
+.foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding-block: 22px 30px; color: var(--mute); border-top: 1px solid var(--night-3); }
+@media (max-width: 640px) {
+  .sheet { padding: 26px 20px 24px; }
+  .cv-head { grid-template-columns: 76px 1fr; gap: 16px; }
+  .cv-head img { width: 76px; height: 96px; }
+  .cv-body { grid-template-columns: 1fr; gap: 28px; }
+  .c-grid { grid-template-columns: 1fr; }
+}
+
+/* lightbox */
+dialog.lb { border: 0; padding: 0; background: transparent; max-width: min(96vw, 1200px); max-height: 92vh; }
+dialog.lb::backdrop { background: rgba(6,6,8,.9); }
+dialog.lb video { max-height: 86vh; width: auto; margin: 0 auto; border-radius: 6px; background: #000; }
+dialog.lb .lb-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--bone); margin-bottom: 8px; font: 600 15px var(--f-body); }
+dialog.lb button { font: 600 13px var(--f-body); background: var(--bone); color: var(--night); border: 0; padding: 7px 13px; border-radius: 99px; cursor: pointer; }
+
+/* renders grid v2 */
+.renders { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; align-items: start; }
+.renders .media { aspect-ratio: 4 / 5; }
+.renders .render.wide { grid-column: span 2; }
+@media (min-width: 861px) { .renders .render.wide .media { aspect-ratio: 1.63 / 1; } }
+@media (max-width: 860px) {
+  .renders { grid-template-columns: 1fr; }
+  .renders .render.wide { grid-column: auto; }
+  .renders .media { aspect-ratio: 1 / 1; }
+  .renders .render.wide .media { aspect-ratio: 16 / 9; height: auto; }
+}
+/* findash gallery */
+.shots .frame { aspect-ratio: 16 / 9; }
+.thumbs { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 8px; }
+.thumbs button { all: unset; cursor: pointer; display: grid; gap: 4px; min-width: 0; }
+.thumbs img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top left; border-radius: 4px; border: 1px solid var(--night-3); opacity: .55; transition: opacity .2s, border-color .2s; }
+.thumbs span { font-size: 11.5px; color: var(--mute); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.thumbs button:hover img { opacity: .85; }
+.thumbs button[aria-selected="true"] img { opacity: 1; border-color: var(--bone); }
+.thumbs button[aria-selected="true"] span { color: var(--bone); }
+.thumbs button:focus-visible img { outline: 2px solid var(--red); outline-offset: 2px; }
+@media (max-width: 560px) { .thumbs { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+.promo { display: inline-flex; align-items: center; gap: 12px; background: transparent; border: 1px solid var(--night-3); border-radius: 8px; padding: 6px 12px 6px 6px; color: var(--bone); cursor: pointer; width: fit-content; text-align: left; font: inherit; margin-top: 6px; transition: border-color .2s, background .2s; }
+.promo:hover { border-color: var(--mute); background: rgba(255,255,255,.04); }
+.promo-thumb { position: relative; width: 76px; aspect-ratio: 16 / 9; border-radius: 4px; overflow: hidden; display: block; }
+.promo-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: .75; }
+.promo-thumb svg { position: absolute; inset: 0; margin: auto; width: 14px; height: 14px; fill: var(--bone); }
+.promo b { display: block; font-size: 13px; font-weight: 600; }
+.promo small { color: var(--mute); font-size: 10.5px; }
+/* small app cards */
+.apps-row { grid-template-columns: 1fr 1fr; }
+.app-card { grid-template-columns: 96px 1fr; gap: 16px; align-items: start; }
+.app-card-body { display: grid; gap: 8px; min-width: 0; }
+.mini-thumb { width: 96px; aspect-ratio: 4 / 3; border-radius: 5px; overflow: hidden; border: 1px solid var(--night-3); background: var(--night-3); display: grid; place-items: center; font-family: var(--f-mono); font-size: 10px; letter-spacing: .12em; color: var(--mute); }
+.mini-thumb img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 700px) { .apps-row { grid-template-columns: 1fr; } }
+/* cuaderno */
+.cuaderno { display: grid; grid-template-columns: 1fr 1.25fr; gap: 28px; background: var(--night-2); border-radius: 8px; padding: 18px; align-items: center; margin-bottom: 48px; }
+.cuaderno > * { min-width: 0; }
+.cuaderno-text { display: grid; gap: 12px; padding: 8px 6px; }
+.cuaderno-text h3 { font-size: 30px; font-weight: 900; font-stretch: 110%; letter-spacing: -.02em; }
+.cuaderno-text p { color: #c4c3c9; }
+.cuaderno-shot { border-radius: 5px; overflow: hidden; border: 1px solid var(--night-3); }
+.cuaderno-shot img { width: 100%; }
+.mk-intro .badge { display: block; margin-bottom: 8px; }
+@media (max-width: 860px) { .cuaderno { grid-template-columns: 1fr; } }
+
+/* v3 */
+.apps-row { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.app-card { grid-template-columns: 1fr; }
+.mini-thumb { width: 100%; max-width: 140px; aspect-ratio: 16 / 10; }
+.mini-thumb img { object-position: top left; }
+.cuaderno { grid-template-columns: 1fr 1.35fr; margin-bottom: 0; }
+.cuaderno .posters { grid-template-columns: repeat(3, minmax(0,1fr)); }
+@media (max-width: 900px) { .apps-row { grid-template-columns: 1fr; } .app-card { grid-template-columns: 110px 1fr; } .cuaderno { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .cuaderno .posters { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .turn.armed h2 .w { transform: none; opacity: 1; }
+  * { transition: none !important; }
+}
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body { background: #fff; }
+  body::before, .bar, .cv-label, .cv-actions, .turn, .reel { display: none !important; }
+  .cv { padding: 0; }
+  .sheet { box-shadow: none; padding: 0; max-width: none; }
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Claudio CV</h1>
-    <nav>
-      <ul>
-        <li><a href="#yo">Sobre mí</a></li>
-        <li><a href="#experiencia">Experiencia</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#cv">Claudio Accorinti<span>.</span></a>
+    <nav aria-label="Secciones">
+      <a href="#cv" class="cv-only" data-sec="cv">CV</a>
+      <a href="#render-3d" data-sec="render-3d">Render 3D</a>
+      <a href="#apps" data-sec="apps">Apps</a>
+      <a href="#marketing" data-sec="marketing">Marketing</a>
+      <a href="#contacto" data-sec="contacto">Contacto</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <!-- SOBRE MÍ -->
-  <section id="yo">
-  <div class="yo-contenido">
-    <!-- Columna izquierda: texto + botones -->
-    <div class="yo-texto">
-      <h2>Sobre mí</h2>
-      <p>Hola, soy Claudio.</p>
-      <p>
-        Soy un estudiante de marketing al que le apasiona el mundo digital y el
-        sector financiero.
-      </p>
-      <p>
-        Estoy en busca de nuevos retos y oportunidades para desarrollar mis
-        habilidades y conocimientos.
-      </p>
+<main>
+  <!-- ======================= CV NORMAL ======================= -->
+  <section class="cv wrap" id="cv">
+    <div class="cv-label mono"><span>Curriculum vitae</span><span>Actualizado nov. 2026</span></div>
 
-      <div class="yo-botones">
-        <a href="#proyectos" class="btn boton-primario">Ver proyectos</a>
-        <a href="#contacto" class="btn boton-secundario">Contáctame</a>
+    <article class="sheet">
+      <div class="cv-head">
+        <img src="media/foto.jpg" alt="Foto de Claudio Accorinti Luna" width="112" height="140">
+        <div>
+          <h1>Claudio Accorinti Luna</h1>
+          <p class="cv-role">Estudiante de Marketing · 19 años · Sevilla</p>
+          <div class="contact">
+            <a href="tel:+34610218758">+34 610 218 758</a>
+            <a href="mailto:claccolu06@gmail.com">claccolu06@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-body">
+        <div>
+          <div class="cv-block">
+            <h2>Perfil</h2>
+            <p>Estudiante de Marketing en la Universidad de Sevilla. He trabajado de camarero en temporada alta en Grecia, atendiendo a clientes de todo el mundo en cuatro idiomas. Soy rápido, me adapto bien al ritmo de sala y me gusta el trato con la gente. Busco un trabajo compatible con mis estudios en hostelería, atención al cliente o comercio.</p>
+          </div>
+
+          <div class="cv-block">
+            <h2>Experiencia</h2>
+            <div class="job">
+              <div class="job-top">
+                <h3>Camarero y ayudante de restaurante</h3>
+                <span class="when">Verano 2025 · 2 meses</span>
+              </div>
+              <p class="where">Restaurante Peperoncino · Pefkos, Rodas (Grecia)</p>
+              <ul>
+                <li>Atención directa en sala en una zona turística internacional: toma de pedidos y dudas de clientes en español, inglés, francés e italiano.</li>
+                <li>Trabajo en equipo bajo presión durante la temporada alta, manteniendo rapidez y calidad de servicio.</li>
+                <li>Manejo de caja, montaje de mesas y coordinación con cocina para cumplir los tiempos de salida.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cv-block">
+            <h2>Formación</h2>
+            <div class="job">
+              <div class="job-top">
+                <h3>Grado en Marketing</h3>
+                <span class="when">En curso</span>
+              </div>
+              <p class="where">Universidad de Sevilla</p>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="cv-block">
+            <h2>Idiomas</h2>
+            <div class="langs">
+              <div class="lang">Español <span class="dots" aria-label="Nativo"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span><small>Nativo</small></div>
+              <div class="lang">Inglés <span class="dots" aria-label="Intermedio alto"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span><small>Intermedio alto</small></div>
+              <div class="lang">Francés <span class="dots" aria-label="Intermedio"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><small>Intermedio</small></div>
+              <div class="lang">Italiano <span class="dots" aria-label="Intermedio"><i class="f"></i><i class="f"></i><i class="f"></i><i></i><i></i></span><small>Intermedio</small></div>
+            </div>
+          </div>
+
+          <div class="cv-block">
+            <h2>Disponibilidad</h2>
+            <ul class="plain">
+              <li>Fines de semana</li>
+              <li>Turnos rotativos</li>
+              <li>Verano completo</li>
+            </ul>
+          </div>
+
+          <div class="cv-block">
+            <h2>Habilidades</h2>
+            <ul class="plain">
+              <li>Atención al cliente</li>
+              <li>Trabajo en equipo</li>
+              <li>Ritmo alto y estrés</li>
+              <li>Caja y cobro</li>
+              <li>Herramientas digitales</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </article>
+
+    <div class="cv-actions">
+      <a class="btn btn-ink" href="CV_Claudio_Accorinti_Luna.pdf" target="_blank" rel="noopener">Descargar CV en PDF</a>
+      <a class="btn btn-line" href="#lo-que-hago">Ver lo que hago ↓</a>
+    </div>
+  </section>
+
+  <!-- ======================= EL GIRO ======================= -->
+  <section class="turn" id="lo-que-hago">
+    <div class="wrap">
+      <p class="eyebrow mono">Hasta aquí, el CV de siempre</p>
+      <h2><span class="w">Esto</span> <span class="w">es</span> <span class="w">lo</span> <span class="w">que</span> <span class="w">hago</span> <span class="w"><em>de verdad.</em></span></h2>
+      <div class="chips">
+        <a class="chip" href="#render-3d">Render 3D <span class="mono">5 piezas</span></a>
+        <a class="chip" href="#apps">Apps <span class="mono">4 proyectos</span></a>
+        <a class="chip" href="#marketing">Marketing <span class="mono">50 pósters</span></a>
       </div>
     </div>
+  </section>
 
-    <!-- Columna derecha: foto -->
-    <div class="yo-imagen">
-      <img src="yo.jpg" alt="Foto de Claudio">
-    </div>
-  </div>
-</section>
-    <!-- EXPERIENCIA -->
-   <section id="experiencia">
-  <h2>Experiencia</h2>
+  <!-- ======================= PORTFOLIO ======================= -->
+  <div class="reel">
 
-  <div class="experiencia-contenido">
-
-    <!-- Herramientas digitales -->
-    <div class="experiencia-bloque">
-      <h3>Herramientas digitales</h3>
-      <p>
-        Soy una persona con experiencia en el uso de herramientas digitales
-        relacionadas con la programación con el fin de crear páginas web.
-      </p>
-      <div class="skills-tags">
-        <span class="skill-tag">HTML</span>
-        <span class="skill-tag">CSS</span>
-        <span class="skill-tag">JavaScript</span>
-        <span class="skill-tag">Python</span>
+    <section class="part wrap" id="render-3d">
+      <div class="part-head">
+        <h2>Render 3D</h2>
+        <p>Escenas, personajes y animación de cámara. Todo modelado, iluminado y montado por mí.</p>
+        <span class="mono">5 piezas</span>
       </div>
-    </div>
 
-    <!-- Estudios -->
-    <div class="experiencia-bloque">
-      <h3>Estudios</h3>
-      <p>
-        Actualmente estudio Marketing en la Universidad de Sevilla (US), donde
-        he adquirido conocimientos en publicidad, análisis de mercado y
-        estrategia de marketing digital.
-      </p>
-      <span class="skill-tag">US</span><br>
-      <a href="https://www.us.es/"
-         class="btn boton-estudios"
-         target="_blank"
-         rel="noopener noreferrer">
-        Visitar universidad
-      </a>
-    </div>
+      <div class="renders">
+        <figure class="render">
+          <div class="media">
+            <video src="media/coche.mp4" poster="media/coche.jpg" muted loop playsinline preload="none" data-auto></video>
+            <button class="play" data-src="media/coche.mp4" data-title="Leggenda"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg>Ver con sonido</button>
+          </div>
+          <figcaption>
+            <h3>Leggenda</h3>
+            <p class="desc">Spot de un superdeportivo V12: escaneo, ficha técnica y cierre en póster.</p>
+            <p class="specs mono">VERTICAL 9:16 · 30 s · CON SONIDO</p>
+          </figcaption>
+        </figure>
 
-    <!-- Práctica -->
-    <div class="experiencia-bloque">
-      <h3>Práctica</h3>
-      <p>Aunque soy estudiante, he trabajado en dos empleos:</p>
-      <ul>
-        <li>
-          Trabajé en el restaurante italiano Peperoncino, donde me encargaba de
-          atender a los clientes y gestionar las órdenes.
-          <br>
-          <a href="https://www.peperoncino.es/"
-             class="btn boton-practica-primario"
-             target="_blank"
-             rel="noopener noreferrer">
-            Visitar restaurante
-          </a>
-        </li>
-        <li>
-          También trabajé en una empresa de servicio de limpieza empresarial.
-          <br>
-          <a href="https://claccolu06-maker.github.io/data-cleanup-service/"
-             class="btn boton-practica-secundario"
-             target="_blank"
-             rel="noopener noreferrer">
-            Visitar empresa
-          </a>
-        </li>
-      </ul>
-    </div>
+        <figure class="render wide">
+          <div class="media">
+            <video src="media/samurai.mp4" poster="media/samurai.jpg" muted loop playsinline preload="none" data-auto></video>
+            <button class="play" data-src="media/samurai.mp4" data-title="Samurái"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg>Ver con sonido</button>
+          </div>
+          <figcaption>
+            <h3>Samurái</h3>
+            <p class="desc">Corto cinematográfico: un samurái contra un gigante de lava en un templo.</p>
+            <p class="specs mono">CINEMASCOPE 2.39:1 · 33 s · CON SONIDO</p>
+          </figcaption>
+        </figure>
 
-  </div>
-</section>
-    <!-- PROYECTOS -->
-    <section id="proyectos">
-      <h2>Proyectos</h2>
+        <figure class="render">
+          <div class="media">
+            <video src="media/espacio.mp4" poster="media/espacio.jpg" muted loop playsinline preload="none" data-auto></video>
+            <button class="play" data-src="media/espacio.mp4" data-title="Covhe · Espacio"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg>Ver con sonido</button>
+          </div>
+          <figcaption>
+            <h3>Covhe · Espacio</h3>
+            <p class="desc">Un coche a la deriva en órbita, entre la Tierra, la Luna y los asteroides.</p>
+            <p class="specs mono">VERTICAL · 48 s · CON SONIDO</p>
+          </figcaption>
+        </figure>
 
-      <div class="proyectos-contenido">
-        <h3>Estos son mis proyectos</h3>
+        <figure class="render">
+          <div class="media">
+            <video src="media/futbol.mp4" poster="media/futbol.jpg" muted loop playsinline preload="none" data-auto></video>
+            <button class="play" data-src="media/futbol.mp4" data-title="Noches que se recuerdan"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg>Ver en grande</button>
+          </div>
+          <figcaption>
+            <h3>Noches que se recuerdan</h3>
+            <p class="desc">Un gol bajo la lluvia en un estadio lleno, con público animado y marcador.</p>
+            <p class="specs mono">VERTICAL 9:16 · 19 s</p>
+          </figcaption>
+        </figure>
 
-        <div class="proyectos-grid">
+        <figure class="render">
+          <div class="media">
+            <video src="media/sevilla.mp4" poster="media/sevilla.jpg" muted loop playsinline preload="none" data-auto></video>
+            <button class="play" data-src="media/sevilla.mp4" data-title="Sevilla"><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg>Ver en grande</button>
+          </div>
+          <figcaption>
+            <h3>Sevilla</h3>
+            <p class="desc">Recorrido por la ciudad: Catedral, Giralda, Setas y Torre del Oro.</p>
+            <p class="specs mono">16:9 · 32 s</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
 
-          <!-- Proyecto 1 -->
-          <article class="proyecto-card">
-            <img src="proyecto-dashboard.png"
-                 alt="Dashboard financiero"
-                 class="proyecto-imagen">
-            <div class="proyecto-info">
-              <h3>Dashboard Financiero</h3>
-              <p>
-                Herramienta donde puedes registrar tus gastos e ingresos
-                y visualizarlos de forma clara.
-              </p>
-              <a href="https://dashboardfinanciero.es"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="proyecto-link">
-                Ver proyecto
-              </a>
-            </div>
-          </article>
+    <section class="part wrap" id="apps">
+      <div class="part-head">
+        <h2>Apps</h2>
+        <p>Herramientas web que he diseñado y programado, publicadas y funcionando.</p>
+        <span class="mono">4 proyectos</span>
+      </div>
 
-          <!-- Proyecto 2 -->
-          <article class="proyecto-card">
-            <img src="proyecto-mapa.png"
-                 alt="Mapa de productos locales"
-                 class="proyecto-imagen">
-            <div class="proyecto-info">
-              <h3>Mapa de Productos Locales</h3>
-              <p>
-                Plataforma que muestra la ubicación de productores locales
-                y sus productos en toda Sevilla.
-              </p>
-              <a href="https://mapaproductoslocales.es"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="proyecto-link">
-                Ver proyecto
-              </a>
-            </div>
-          </article>
+      <div class="feature">
+        <div class="shots">
+          <div class="frame"><img id="shot" src="media/findash-1.jpg" alt="FinDash: panel con saldo, entradas, salidas y flujo de capital"></div>
+          <div class="thumbs" role="tablist" aria-label="Pantallas de FinDash">
+            <button role="tab" aria-selected="true" data-shot="0"><img src="media/findash-1.jpg" alt="" ><span>Panel</span></button>
+            <button role="tab" aria-selected="false" data-shot="1"><img src="media/findash-4.jpg" alt=""><span>Flujo</span></button>
+            <button role="tab" aria-selected="false" data-shot="2"><img src="media/findash-2.jpg" alt=""><span>Registro</span></button>
+            <button role="tab" aria-selected="false" data-shot="3"><img src="media/findash-5.jpg" alt=""><span>Libro mayor</span></button>
+            <button role="tab" aria-selected="false" data-shot="4"><img src="media/findash-6.jpg" alt=""><span>Analítica</span></button>
+            <button role="tab" aria-selected="false" data-shot="5"><img src="media/findash-7.jpg" alt=""><span>Ajustes</span></button>
+          </div>
+        </div>
+        <div class="app-text">
+          <span class="badge">Proyecto destacado</span>
+          <h3>FinDash</h3>
+          <p>Panel de finanzas personales. Apuntas gastos e ingresos y la app los clasifica sola según el concepto («Mercadona» va a Alimentación). Enseña el flujo de capital por semanas y en qué se va el dinero.</p>
+          <ul class="facts">
+            <li><span>Qué hace</span><span>Registro, libro mayor, analítica por categorías</span></li>
+            <li><span>Detalle</span><span>Categoría automática al escribir el concepto</span></li>
+            <li><span>Datos</span><span>Copia de seguridad en CSV</span></li>
+          </ul>
+          <a class="go" href="https://dashboardfinanciero.es/" target="_blank" rel="noopener">Abrir dashboardfinanciero.es ↗</a>
+          <button class="promo" data-src="media/findash-promo.mp4" data-title="FinDash · vídeo promocional">
+            <span class="promo-thumb"><img src="media/findash-promo.jpg" alt=""><svg viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z"/></svg></span>
+            <span><b>Vídeo promocional</b><small class="mono">1:13 · CON SONIDO</small></span>
+          </button>
+        </div>
+      </div>
 
-          <!-- Proyecto 3 -->
-          <article class="proyecto-card">
-            <img src="smart-time.png"
-                 alt="Smart Time"
-                 class="proyecto-imagen">
-            <div class="proyecto-info">
-              <h3>Smart Time</h3>
-              <p>
-                Aplicación para gestionar el tiempo y organizar tus tareas
-                diarias o cualquier tipo de actividad.
-              </p>
-              <a href="https://claccolu06-maker.github.io/mas-tarde-1-/"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                 class="proyecto-link">
-                Ver proyecto
-              </a>
-            </div>
-          </article>
+      <div class="apps-row">
+        <article class="app-card">
+          <div class="mini-thumb"><img src="media/mapa.jpg" alt="Comercio Local Sevilla: mapa con los negocios agrupados por zonas"></div>
+          <div class="app-card-body">
+            <h3>Comercio Local Sevilla</h3>
+            <p>Mapa de negocios de barrio de Sevilla, con buscador y filtros por categoría.</p>
+            <a class="go" href="https://claccolu06-maker.github.io/mapa-producto-local/" target="_blank" rel="noopener">Abrir mapa ↗</a>
+          </div>
+        </article>
+        <article class="app-card">
+          <div class="mini-thumb"><img src="media/mkthub.jpg" alt="MktHub US: inicio con calendario, asignaturas y calculadora"></div>
+          <div class="app-card-body">
+            <h3>MktHub US</h3>
+            <p>App para 3º de Marketing en la US: exámenes y entregas, asignaturas, apuntes de clase y calculadora de notas.</p>
+            <a class="go" href="https://mtkhub-us.netlify.app/#/calendario" target="_blank" rel="noopener">Abrir MktHub ↗</a>
+          </div>
+        </article>
+        <article class="app-card">
+          <div class="mini-thumb"><img src="media/datacleanup.jpg" alt="Data Cleanup: ejemplo de fichero antes y después de limpiar"></div>
+          <div class="app-card-body">
+            <h3>Data Cleanup</h3>
+            <p>Web de un servicio de limpieza de datos: ficheros con duplicados y formatos mezclados, entregados limpios y unificados.</p>
+            <a class="go" href="https://claccolu06-maker.github.io/data-cleanup-service/" target="_blank" rel="noopener">Abrir web ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
+    <section class="part wrap" id="marketing">
+      <div class="part-head">
+        <h2>Marketing</h2>
+        <p>Dirección de arte y campañas: decidir el estilo, el mensaje y cómo se ve un producto.</p>
+        <span class="mono">Cuaderno de marketing</span>
+      </div>
+
+      <div class="cuaderno">
+        <div class="cuaderno-text">
+          <h3>Cuaderno de marketing</h3>
+          <p>Una herramienta que hice para crear pósters de cualquier producto en cinco pasos: qué se anuncia, el estilo (entre 58), colores y formato, textos, y al final te da el prompt listo para generar la imagen.</p>
+          <ul class="facts">
+            <li><span>Estilos</span><span>58 catalogados, de minimalismo a risografía</span></li>
+            <li><span>Incluye</span><span>Paletas, textos, animación, mockups y calendario</span></li>
+            <li><span>Prueba</span><span>50 pósters para una moto inventada, la Volta RR</span></li>
+          </ul>
+        </div>
+        <div class="posters">
+        <figure class="poster"><div class="pimg"><img src="media/poster-01-minimalismo.jpg" alt="Póster Volta RR estilo minimalismo"></div><figcaption>Minimalismo <span class="mono">01</span></figcaption></figure>
+        <figure class="poster"><div class="pimg"><img src="media/poster-03-futurista.jpg" alt="Póster Volta RR estilo futurista"></div><figcaption>Futurista <span class="mono">03</span></figcaption></figure>
+        <figure class="poster"><div class="pimg"><img src="media/poster-08-pop-art.jpg" alt="Póster Volta RR estilo pop art"></div><figcaption>Pop art <span class="mono">08</span></figcaption></figure>
+        <figure class="poster"><div class="pimg"><img src="media/poster-06-retro.jpg" alt="Póster Volta RR estilo retro"></div><figcaption>Retro <span class="mono">06</span></figcaption></figure>
+        <figure class="poster"><div class="pimg"><img src="media/poster-12-editorial.jpg" alt="Póster Volta RR estilo editorial"></div><figcaption>Editorial <span class="mono">12</span></figcaption></figure>
+        <figure class="poster"><div class="pimg"><img src="media/poster-05-collage.jpg" alt="Póster Volta RR estilo collage"></div><figcaption>Collage <span class="mono">05</span></figcaption></figure>
         </div>
       </div>
     </section>
 
-    <!-- CONTACTO -->
-    <section id="contacto">
-      <h2>Contáctame</h2>
-      <p>
-        Puedes escribirme a:
-        <a href="mailto:claccolu06@gmail.com">claccolu06@gmail.com</a>
-      </p>
-      <p>
-        También puedes encontrarme en
-        <a href="https://www.linkedin.com/feed/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="boton-linkedin">
-          LinkedIn
-        </a>
-      </p>
-      <p>
-        Teléfono: +34 610 218 758
-      </p>
+    <section class="wrap contact-end" id="contacto">
+      <h2>¿Hablamos?<br><em>Escríbeme.</em></h2>
+      <div class="c-grid">
+        <div><span class="mono">Email</span><a href="mailto:claccolu06@gmail.com">claccolu06@gmail.com</a></div>
+        <div><span class="mono">Teléfono</span><a href="tel:+34610218758">+34 610 218 758</a></div>
+        <div><span class="mono">Ciudad</span><strong>Sevilla</strong></div>
+      </div>
+      <div class="cv-actions" style="margin: 30px 0 0;">
+        <a class="btn btn-bone" href="CV_Claudio_Accorinti_Luna.pdf" target="_blank" rel="noopener">Descargar CV en PDF</a>
+      </div>
     </section>
-  </main>
 
-  <footer>
-    <p>Claudio · 2026</p>
-  </footer>
+    <footer class="wrap foot mono"><span>Claudio Accorinti Luna · 2026</span><a href="#cv" style="text-decoration:none">Volver arriba ↑</a></footer>
+  </div>
+</main>
+
+<dialog class="lb" id="lb" aria-label="Vídeo">
+  <div class="lb-top"><span id="lb-title"></span><button type="button" id="lb-close">Cerrar</button></div>
+  <video id="lb-video" controls playsinline></video>
+</dialog>
+
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Autoplay renders muted only while on screen
+  var vids = document.querySelectorAll('video[data-auto]');
+  if ('IntersectionObserver' in window && !reduce) {
+    var vio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { if (v.preload === 'none') v.preload = 'auto'; var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+        else v.pause();
+      });
+    }, { threshold: 0.35 });
+    vids.forEach(function (v) { vio.observe(v); });
+  }
+
+  // Lightbox with sound
+  var lb = document.getElementById('lb'), lbv = document.getElementById('lb-video'), lbt = document.getElementById('lb-title');
+  document.querySelectorAll('.play, .promo').forEach(function (b) {
+    b.addEventListener('click', function () {
+      lbv.src = b.dataset.src; lbt.textContent = b.dataset.title; lbv.muted = false;
+      if (lb.showModal) lb.showModal(); else lb.setAttribute('open', '');
+      var p = lbv.play(); if (p && p.catch) p.catch(function(){});
+    });
+  });
+  function closeLb() { lbv.pause(); lbv.removeAttribute('src'); lbv.load(); if (lb.close) lb.close(); else lb.removeAttribute('open'); }
+  document.getElementById('lb-close').addEventListener('click', closeLb);
+  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+  lb.addEventListener('cancel', function () { lbv.pause(); });
+
+  // FinDash screenshots
+  var shots = [
+    ['media/findash-1.jpg', 'FinDash: panel con saldo, entradas, salidas y flujo de capital'],
+    ['media/findash-4.jpg', 'FinDash: panel con el flujo de capital acumulado'],
+    ['media/findash-2.jpg', 'FinDash: formulario de nuevo registro con categoría automática'],
+    ['media/findash-5.jpg', 'FinDash: libro mayor con todos los movimientos'],
+    ['media/findash-6.jpg', 'FinDash: analítica con la composición del gasto por categorías'],
+    ['media/findash-7.jpg', 'FinDash: ajustes y copia de seguridad de los datos']
+  ];
+  var img = document.getElementById('shot');
+  document.querySelectorAll('[data-shot]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var i = +b.dataset.shot; img.src = shots[i][0]; img.alt = shots[i][1];
+      document.querySelectorAll('[data-shot]').forEach(function (x) { x.setAttribute('aria-selected', x === b ? 'true' : 'false'); });
+    });
+  });
+
+  // The turn: words rise as it comes into view
+  var turn = document.querySelector('.turn');
+  if ('IntersectionObserver' in window && !reduce) {
+    var r = turn.getBoundingClientRect();
+    if (r.top > window.innerHeight) {
+      turn.classList.add('armed');
+      new IntersectionObserver(function (es, o) {
+        es.forEach(function (e) { if (e.isIntersecting) { turn.classList.add('go'); o.disconnect(); } });
+      }, { threshold: 0.4 }).observe(turn);
+    }
+  }
+  var ws = turn.querySelectorAll('.w');
+  ws.forEach(function (w, i) { w.style.transitionDelay = (i * 70) + 'ms'; });
+
+  // Bar switches to dark over the portfolio; highlight current section
+  var reel = document.querySelector('.reel');
+  var links = document.querySelectorAll('.bar nav a');
+  function onScroll() {
+    var y = 70;
+    document.body.classList.toggle('in-reel', reel.getBoundingClientRect().top < y);
+    var cur = 'cv';
+    ['render-3d', 'apps', 'marketing', 'contacto'].forEach(function (id) {
+      var el = document.getElementById(id); if (el && el.getBoundingClientRect().top < window.innerHeight * 0.4) cur = id;
+    });
+    if (document.querySelector('.turn').getBoundingClientRect().top < window.innerHeight * 0.4 && cur === 'cv') cur = '';
+    links.forEach(function (a) { a.classList.toggle('is-on', a.dataset.sec === cur); });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
 
 </body>
 </html>
